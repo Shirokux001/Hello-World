@@ -1,0 +1,28 @@
+import random
+AC = 3
+
+def attack_hit(roll):
+    if roll > AC:
+        print ("Attack Successful")
+        return True
+    else:
+        print ("Attack Failed")
+        return False
+
+class Bear(object):
+    BaseHP = 34
+    BaseAC = 11
+    HitChance = random.randint(1,20)
+    def __init__(self, AC, HP):
+        self.AC = AC
+        self.HP = HP
+    def bite(self):
+        roll = random.randint(1, 20) + 5
+        if attack_hit(roll) == True:
+            damage = random.randint(1,8) + 4
+            print ("The bear delivers a vicious bite, dealing %d damage.") % (damage)
+        else:
+            print ("The bear snaps at you, but misses.")
+
+
+print (Bear.bite)
